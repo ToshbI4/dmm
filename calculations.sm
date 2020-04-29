@@ -4,7 +4,7 @@
   <settings ppi="120">
     <identity>
       <id>59558540-6338-446f-a197-0fda08d16a15</id>
-      <revision>68</revision>
+      <revision>78</revision>
     </identity>
     <calculation>
       <precision>4</precision>
@@ -869,17 +869,26 @@
         <p fontName="Times New Roman">Допускаемый угол закручивания вала на единицу длины:</p>
       </text>
     </region>
-    <region left="0" top="2493" width="110" height="41" color="#000000" fontSize="10">
+    <region left="0" top="2493" width="182" height="41" color="#000000" fontSize="10">
       <math>
         <input>
-          <e type="operand">θ</e>
+          <e type="operand">θ.d</e>
+          <e type="operand">1</e>
           <e type="operand">10000</e>
+          <e type="operator" args="2">/</e>
           <e type="operand" style="unit">rad</e>
           <e type="operand" style="unit">mm</e>
           <e type="operator" args="2">/</e>
           <e type="operator" args="2">*</e>
           <e type="operator" args="2">:</e>
         </input>
+        <result action="numeric">
+          <e type="operand">0.1</e>
+          <e type="operand">1</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
       </math>
     </region>
     <region left="0" top="2529" width="307" height="24" color="#000000" fontSize="10">
@@ -887,17 +896,18 @@
         <p fontName="Times New Roman">Допускаемая стрела изгиба на единицу длины вала:</p>
       </text>
     </region>
-    <region left="0" top="2547" width="110" height="41" color="#000000" fontSize="10">
+    <region left="0" top="2547" width="146" height="41" color="#000000" fontSize="10">
       <math>
         <input>
           <e type="operand">Δf</e>
-          <e type="operand">1400</e>
-          <e type="operand" style="unit">μm</e>
-          <e type="operand" style="unit">mm</e>
+          <e type="operand">1.4</e>
+          <e type="operand">1000</e>
           <e type="operator" args="2">/</e>
-          <e type="operator" args="2">*</e>
           <e type="operator" args="2">:</e>
         </input>
+        <result action="numeric">
+          <e type="operand">0.0014</e>
+        </result>
       </math>
     </region>
     <region left="0" top="2583" width="287" height="24" color="#000000" fontSize="10">
@@ -5385,6 +5395,495 @@
         <result action="numeric">
           <e type="operand">0.0096</e>
           <e type="operand" style="unit">J</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="207" top="13221" width="283" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p bold="true" fontName="Arial">Расчет валов на статическую прочность</p>
+      </text>
+    </region>
+    <region left="0" top="13284" width="593" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">Механические характеристики конструкционной стали, используемой для изготовления вала</p>
+      </text>
+    </region>
+    <region left="0" top="13302" width="269" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">Упругие константы углеродистых сталей:</p>
+      </text>
+    </region>
+    <region left="0" top="13320" width="377" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">E = 1.95..2.05 *10^5 МПа - модуль упругости первого рода;</p>
+      </text>
+    </region>
+    <region left="0" top="13338" width="377" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">G = 0.80..0.81 *10^5 МПа - модуль упругости второго рода;</p>
+      </text>
+    </region>
+    <region left="0" top="13356" width="272" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">ν = 0.024..0.028 - коэффициент Пуассона;</p>
+      </text>
+    </region>
+    <region left="0" top="13428" width="212" height="33" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">G</e>
+          <e type="operand">0.8</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">8</e>
+          <e type="operand">10</e>
+          <e type="operand">10</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="13482" width="158" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">Марки стали: Сталь 35;</p>
+      </text>
+    </region>
+    <region left="0" top="13509" width="101" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">σ.BV</e>
+          <e type="operand">600</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≥</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13536" width="101" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">σ.TV</e>
+          <e type="operand">320</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≥</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13563" width="101" height="30" color="#000000" fontSize="10">
+      <math optimize="2">
+        <input>
+          <e type="operand">τ.TV</e>
+          <e type="operand">190</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≥</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13590" width="148" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">σ.И_1</e>
+          <e type="operand">220</e>
+          <e type="operand">300</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13617" width="148" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">σ.Р_1</e>
+          <e type="operand">170</e>
+          <e type="operand">220</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13644" width="148" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">τ.k_1</e>
+          <e type="operand">130</e>
+          <e type="operand">180</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13680" width="103" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">σ.BV</e>
+          <e type="operand">600</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13707" width="103" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">σ.TV</e>
+          <e type="operand">320</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13734" width="103" height="30" color="#000000" fontSize="10">
+      <math optimize="2">
+        <input>
+          <e type="operand">τ.TV</e>
+          <e type="operand">190</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13761" width="148" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">σ.И_1</e>
+          <e type="operand">220</e>
+          <e type="operand">300</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13788" width="148" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">σ.Р_1</e>
+          <e type="operand">170</e>
+          <e type="operand">220</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13815" width="148" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">τ.k_1</e>
+          <e type="operand">130</e>
+          <e type="operand">180</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="13860" width="263" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">Допускаемое напряжение при кручении:</p>
+      </text>
+    </region>
+    <region left="0" top="13887" width="197" height="53" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">τ.dk</e>
+          <e type="operand">σ.TV</e>
+          <e type="operand">S.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">5.3333</e>
+          <e type="operand">10</e>
+          <e type="operand">7</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">Pa</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="13950" width="642" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">С учетом того, что при проектировочном расчете валов допускаемые напряжения обычно занижают:</p>
+      </text>
+    </region>
+    <region left="0" top="13977" width="95" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">τ.dk</e>
+          <e type="operand">20</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="14013" width="349" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">По условию статической прочности вала на кручение:</p>
+      </text>
+    </region>
+    <region left="0" top="14031" width="219" height="81" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">d.min</e>
+          <e type="operand">M.VI</e>
+          <e type="operand">0.2</e>
+          <e type="operand">τ.dk</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">1</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0045</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="14130" width="264" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">По условию крутильной жесткости вала:</p>
+      </text>
+    </region>
+    <region left="0" top="14157" width="232" height="81" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">d.min</e>
+          <e type="operand">M.VI</e>
+          <e type="operand">0.1</e>
+          <e type="operand">G</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">θ.d</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.0046</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="14283" width="74" height="24" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">dm</e>
+          <e type="operand">5</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="14337" width="277" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">Радиальная составляющая силы резания:</p>
+      </text>
+    </region>
+    <region left="0" top="14364" width="159" height="30" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">P</e>
+          <e type="operand">150</e>
+          <e type="operand">S.1</e>
+          <e type="operand">10</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">210</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="14409" width="319" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">Длина вала, округленная до ближайшего целого:</p>
+      </text>
+    </region>
+    <region left="0" top="14436" width="141" height="24" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">L</e>
+          <e type="operand">10</e>
+          <e type="operand">dm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.05</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="14463" width="259" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">Допускаемая деформация изгиба вала:</p>
+      </text>
+    </region>
+    <region left="0" top="14490" width="179" height="39" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">Δf.ud</e>
+          <e type="operand">Δf</e>
+          <e type="operand">L</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">7</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="14526" width="162" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p bold="true" fontName="Arial">Модуль первого рода:</p>
+      </text>
+    </region>
+    <region left="0" top="14553" width="114" height="24" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">E</e>
+          <e type="operand">200000</e>
+          <e type="operand" style="unit">MPa</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="14571" width="236" height="84" color="#000000" fontSize="10">
+      <math decimalPlaces="5">
+        <input>
+          <e type="operand">d</e>
+          <e type="operand">1.3</e>
+          <e type="operand" style="unit">N</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">P</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">E</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Δf.ud</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.00528</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="14670" width="206" height="24" color="#000000" fontSize="10">
+      <text lang="rus">
+        <p fontName="Arial">Для установки зубчатых колес:</p>
+      </text>
+    </region>
+    <region left="0" top="14697" width="193" height="39" color="#000000" fontSize="10">
+      <math>
+        <input>
+          <e type="operand">Δf.ud</e>
+          <e type="operand">0.03</e>
+          <e type="operand">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">3</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="14742" width="236" height="84" color="#000000" fontSize="10">
+      <math decimalPlaces="5">
+        <input>
+          <e type="operand">d</e>
+          <e type="operand">1.3</e>
+          <e type="operand" style="unit">N</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">P</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">E</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Δf.ud</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.00652</e>
+          <e type="operand" style="unit">m</e>
           <e type="operator" args="2">*</e>
         </result>
       </math>
