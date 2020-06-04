@@ -4,7 +4,7 @@
   <settings ppi="120">
     <identity>
       <id>59558540-6338-446f-a197-0fda08d16a15</id>
-      <revision>251</revision>
+      <revision>254</revision>
     </identity>
     <calculation>
       <precision>4</precision>
@@ -10329,10 +10329,10 @@
         </input>
       </math>
     </region>
-    <region left="0" top="32184" width="73" height="30" color="#000000" fontSize="10">
+    <region left="0" top="32184" width="78" height="24" color="#000000" fontSize="10">
       <math>
         <input>
-          <e type="operand">E,HS4</e>
+          <e type="operand">EHS4</e>
           <e type="operand">38</e>
           <e type="operator" args="2">:</e>
         </input>
@@ -10494,7 +10494,7 @@
         <p fontName="Arial">Максимальный кинематический мертвый ход передачи:</p>
       </text>
     </region>
-    <region left="0" top="33156" width="522" height="43" color="#000000" fontSize="10">
+    <region left="0" top="33156" width="525" height="43" color="#000000" fontSize="10">
       <math error="2" errorLocation="8">
         <input>
           <e type="operand">j.tmax</e>
@@ -10524,7 +10524,7 @@
           <e type="operand">2</e>
           <e type="operator" args="2">^</e>
           <e type="operator" args="2">+</e>
-          <e type="operand">G,r2</e>
+          <e type="operand">Gr2</e>
           <e type="operand">2</e>
           <e type="operator" args="2">^</e>
           <e type="operator" args="2">+</e>
