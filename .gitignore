@@ -1,5 +1,7 @@
-report.pdf
 Lections/*
 manuals/*
-legacy/*
-sketch.frw
+*.cdw.bak
+*.spw.bak
+*.frw.bak
+*.a3d.bak
+*.m3d.bak
